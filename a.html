@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طرح حمایتی رادیکال تک | طراحی سایت فروشگاهی</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IRANSans&display=swap');
+
+        :root {
+            --primary: #ffd700; /* طلایی */
+            --secondary: #c0c0c0; /* نقره‌ای */
+            --accent: #000; /* سیاه */
+            --dark: #1a1a1a; /* سیاه تیره */
+            --light: #333; /* خاکستری تیره */
+            --success: #ffd700aa; /* طلایی نیمه‌شفاف */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'IRANSans', 'Arial', sans-serif; /* فونت جایگزین */
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--accent), var(--dark));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        .banner-container {
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            background: linear-gradient(135deg, var(--dark), var(--light));
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            border: 1px solid var(--success);
+        }
+
+        .banner-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: var(--accent);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, var(--success), transparent);
+            top: -50%;
+            left: -50%;
+            z-index: 1;
+        }
+
+        .diamond {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--primary), var(--success));
+            transform: translate(-50%, -50%) rotate(45deg);
+            opacity: 0.3;
+            z-index: 0;
+            animation: pulseDiamond 1.5s infinite ease-in-out;
+        }
+
+        @keyframes pulseDiamond {
+            0%, 100% { transform: translate(-50%, -50%) rotate(45deg) scale(1); }
+            50% { transform: translate(-50%, -50%) rotate(45deg) scale(1.15); }
+        }
+
+        .logo-circle {
+            position: absolute;
+            top: 35%;
+            right: 5%; /* تغییر از left به right */
+            transform: translateY(-50%);
+            width: 120px;
+            height: 120px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 3;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1rem;
+            font-weight: bold;
+            color: black;
+            position: relative;
+            z-index: 3;
+            text-shadow: 
+                0 0 5px rgba(192, 192, 192, 0.8),
+                0 0 10px rgba(255, 255, 255, 0.5);
+            animation: heartbeat 1.5s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+@keyframes heartbeat {
+            0% {
+                transform: scale(1);
+                text-shadow: 
+                    0 0 5px rgba(192, 192, 192, 0.8),
+                    0 0 10px rgba(255, 255, 255, 0.5);
+            }
+            15% {
+                transform: scale(1.05);
+                text-shadow: 
+                    0 0 8px rgba(192, 192, 192, 0.9),
+                    0 0 15px rgba(255, 255, 255, 0.7);
+            }
+            30% {
+                transform: scale(1.03);
+                text-shadow: 
+                    0 0 7px rgba(192, 192, 192, 0.85),
+                    0 0 13px rgba(255, 255, 255, 0.6);
+            }
+            45% {
+                transform: scale(1.05);
+                text-shadow: 
+                    0 0 8px rgba(192, 192, 192, 0.9),
+                    0 0 15px rgba(255, 255, 255, 0.7);
+            }
+            60% {
+                transform: scale(1);
+                text-shadow: 
+                    0 0 5px rgba(192, 192, 192, 0.8),
+                    0 0 10px rgba(255, 255, 255, 0.5);
+            }
+            100% {
+                transform: scale(1);
+                text-shadow: 
+                    0 0 5px rgba(192, 192, 192, 0.8),
+                    0 0 10px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        .content {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .offer-section {
+            background-color: var(--dark);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--primary);
+            color: var(--secondary);
+        }
+
+        .offer-section:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .sample-work {
+            margin-top: 15px;
+            font-size: 1rem;
+            color: var(--secondary);
+        }
+
+        .sample-work a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .sample-work a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .price-section {
+            background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+            color: var(--accent);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+            transform: rotate(30deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: rotate(30deg) translate(-30%, -30%); }
+            100% { transform: rotate(30deg) translate(30%, 30%); }
+        }
+
+        .original-price {
+            font-size: 1.3rem;
+            text-decoration: line-through;
+            opacity: 0.7;
+            margin-bottom: 5px;
+        }
+
+        .discounted-price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .benefits-list {
+            list-style-type: none;
+            margin-top: 15px;
+        }
+
+        .benefits-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--light);
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-right: 25px;
+        }
+
+.benefits-list li:last-child {
+            border-bottom: none;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+            font-size: 1.1rem;
+            padding-right: 10px;
+        }
+
+        .highlight {
+            background-color: var(--success);
+            padding: 2px 5px;
+            margin-right: 5px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .payment-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .payment-btn {
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            color: var(--accent);
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: pulseButton 1.5s infinite ease-in-out;
+        }
+
+        .payment-btn:hover {
+            background: linear-gradient(to right, var(--primary), var(--secondary)); /* تغییر رنگ در hover */
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .payment-btn:active {
+            background: var(--secondary); /* رنگ هنگام کلیک */
+            transform: scale(0.95);
+        }
+
+        @keyframes pulseButton {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .payment-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent 0%, rgba(255, 215, 0, 0.3) 50%, transparent 100%);
+            transform: translateX(-100%);
+        }
+
+        .payment-btn:hover::after {
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            100% { transform: translateX(100%); }
+        }
+
+        .payment-details {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 10px;
+            color: var(--secondary);
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .contact-info {
+            background-color: var(--dark);
+            color: var(--secondary);
+            padding: 15px;
+            text-align: center;
+            font-size: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .contact-info a:hover {
+            color: var(--secondary);
+            transform: scale(1.05);
+        }
+
+        .guarantee-badge {
+            position: absolute;
+            top: -5px;
+            left: -7px;
+            background-color: var(--primary);
+            color: var(--accent);
+            padding: 8px 12px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transform: rotate(-15deg);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            z-index: 3;
+            animation: pulse 1s infinite;
+        }
+
+@keyframes pulse {
+            0% { transform: rotate(-15deg) scale(1); }
+            50% { transform: rotate(-15deg) scale(1.05); }
+            100% { transform: rotate(-15deg) scale(1); }
+        }
+
+        .delivery-time {
+            background-color: var(--primary);
+            color: var(--accent);
+            padding: 8px 12px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* تنظیمات برای لپ‌تاپ‌ها (رزولوشن‌های متوسط) */
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .banner-container {
+                max-width: 95%;
+                margin: 15px auto;
+            }
+
+            .content {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .logo-circle {
+                width: 110px;
+                height: 110px;
+                right: 3%;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .offer-section, .price-section {
+                padding: 18px;
+            }
+
+            .discounted-price {
+                font-size: 1.8rem;
+            }
+
+            .payment-btn {
+                padding: 10px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .banner-container {
+                max-width: 100%;
+                margin: 10px;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+
+            .header {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 1.6rem;
+            }
+
+            .header p {
+                font-size: 0.9rem;
+            }
+
+            .logo-circle {
+                width: 100px;
+                height: 100px;
+                right: 5%;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .diamond {
+                width: 60px;
+                height: 60px;
+            }
+
+            .offer-section, .price-section {
+                padding: 15px;
+            }
+
+            .original-price {
+                font-size: 1.1rem;
+            }
+
+            .discounted-price {
+                font-size: 1.8rem;
+            }
+
+            .payment-btn {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+                font-size: 0.9rem;
+            }
+
+            .guarantee-badge {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+
+            .delivery-time {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner-container {
+                margin: 5px;
+            }
+
+            .header {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 1.4rem;
+            }
+
+            .header p {
+                font-size: 0.8rem;
+            }
+
+            .logo-circle {
+                width: 50px;
+                height: 50px;
+                right: 5%;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .diamond {
+                width: 50px;
+                height: 50px;
+            }
+
+            .content {
+                padding: 10px;
+            }
+
+            .offer-section, .price-section {
+                padding: 10px;
+            }
+
+.benefits-list li {
+                font-size: 0.9rem;
+                padding: 8px 0;
+            }
+
+            .payment-btn {
+                padding: 6px;
+                font-size: 0.8rem;
+            }
+
+            .payment-details {
+                padding: 10px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner-container">
+        <div class="guarantee-badge">پیشنهاد ویژه!</div>
+        
+        <div class="header">
+            <div class="diamond"></div>
+            <div class="logo-circle">
+                <div class="logo">TEK√</div>
+            </div>
+            <h1>رادیکال تک تقدیم می‌کند:</h1>
+            <p>«طرح حمایت از فروشگاه‌های اینترنتی»</p>
+        </div>
+        
+        <div class="content">
+            <div class="offer-section">
+                <h2>مزایای این طرح:</h2>
+                <ul class="benefits-list">
+                    <li>طراحی سایت فروشگاهی حرفه‌ای با <span class="highlight">تخفیف 25%</span></li>
+                    <li>هاست، دامین و SSL <span class="highlight">کاملاً رایگان</span></li>
+                    <li>افزودن 40 محصول به سایت <span class="highlight">رایگان</span></li>
+                    <li>آموزش مدیریت سایت <span class="highlight">برای مدیر فروشگاه</span></li>
+                    <li>پشتیبانی و رفع اشکال <span class="highlight">3 ماهه رایگان</span></li>
+                    <li>تنظیم و امضای <span class="highlight">قرارداد رسمی</span></li>
+                    <li>
+                        <span class="delivery-time">زمان تحویل: فقط 7 روز کاری</span>
+                    </li>
+                </ul>
+                <div class="sample-work">
+                    <p>نمونه کار: <a href="http://arash-watchstore.ir" target="_blank">arash-watchstore.ir</a></p>
+                </div>
+            </div>
+            
+            <div class="price-section">
+                <div class="original-price">قیمت معمول: ۸,۰۰۰,۰۰۰ تومان</div>
+                <div class="discounted-price">۶,۰۰۰,۰۰۰ تومان</div>
+                <p>فقط برای فروشگاه‌های فعال</p>
+                
+                <div class="payment-options">
+                    <button class="payment-btn" onclick="togglePayment('normal')" aria-label="نمایش جزئیات پرداخت معمولی">پرداخت معمولی</button>
+                    <div id="normal-payment" class="payment-details">
+                        <p>۳,۰۰۰,۰۰۰ تومان قبل از شروع کار</p>
+                        <p>۳,۰۰۰,۰۰۰ تومان پس از تحویل سایت</p>
+                    </div>
+                    
+                    <button class="payment-btn" onclick="togglePayment('installment')" aria-label="نمایش جزئیات پرداخت قسطی">پرداخت قسطی</button>
+                    <div id="installment-payment" class="payment-details">
+                        <p>۶۰٪ قبل از شروع کار (۴,۲۰۰,۰۰۰ تومان)</p>
+                        <p>۴۰٪ طی یک ماه بعد (۲,۸۰۰,۰۰۰ تومان)</p>
+                        <p>مبلغ کل با پرداخت قسطی: ۷,۰۰۰,۰۰۰ تومان</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-info">
+            <a href="tel:09966164391" aria-label="تماس با شماره 09966164391">09966164391</a>
+            <a href="tel:09999999999" aria-label="تماس با شماره 09999999999">09999999999</a>
+        </div>
+    </div>
+
+    <script>
+        function togglePayment(type) {
+            const normalPayment = document.getElementById('normal-payment');
+            const installmentPayment = document.getElementById('installment-payment');
+            
+            if (type === 'normal') {
+                normalPayment.style.display = normalPayment.style.display === 'block' ? 'none' : 'block';
+                installmentPayment.style.display = 'none';
+            } else {
+                installmentPayment.style.display = installmentPayment.style.display === 'block' ? 'none' : 'block';
+                normalPayment.style.display = 'none';
+            }
+        }
+
+document.querySelectorAll('.payment-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                btn.classList.add('hover'); // استفاده از کلاس برای مدیریت hover
+            });
+            
+            btn.addEventListener('mouseleave', () => {
+                btn.classList.remove('hover');
+            });
+
+            btn.addEventListener('click', () => {
+                btn.classList.add('active');
+                setTimeout(() => {
+                    btn.classList.remove('active');
+                }, 200);
+            });
+        });
+
+        const benefits = document.querySelectorAll('.benefits-list li');
+        benefits.forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(20px)';
+            item.style.transition = opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s;
+            
+            setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateX(0)';
+            }, 500 + (index * 100));
+        });
+    </script>
+</body>
+</html>
